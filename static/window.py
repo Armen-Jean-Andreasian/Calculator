@@ -6,6 +6,12 @@ from static.widgets import ColumnsGenerator
 sg.theme("Black")
 text = sg.Text("Calculator")
 
+
+result_box = sg.Multiline(size=(34, 1),  justification='right',
+                          text_color="white", background_color="Black", font=("Helvetica", 32, "bold"),
+                          default_text="0", no_scrollbar=True, disabled=True, key='result', border_width=0
+                          )
+
 button1 = ButtonsGenerator.generate_button(button_text="1", key="1")
 button2 = ButtonsGenerator.generate_button(button_text="2", key="2")
 button3 = ButtonsGenerator.generate_button(button_text="3", key="3")
@@ -31,4 +37,6 @@ col2 = ColumnsGenerator.generate_column(button8, button5, button2, button0)
 col3 = ColumnsGenerator.generate_column(button9, button6, button3, button_equal)
 col4 = ColumnsGenerator.generate_column(button_plus, button_minus, button_mult, button_div)
 
-WINDOW = sg.Window("Calculator", layout=[[col1, col2, col3, col4]])
+WINDOW = sg.Window("Aristotle Counts", layout=[[result_box], [col1, col2, col3, col4]], size=(347, 367),
+                   icon='icons/64_logo.ico', titlebar_icon=''
+                   )
